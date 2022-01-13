@@ -20,5 +20,6 @@ for(tract in 1:nrow(tracts)) {
 }
 
 # Convert list col to comma-separated string and save
-unnest(tracts, bounds) %>%
+tracts %>%
+  mutate(bounds = map_chr(bounds, ~ .x %>% str_c(collapse = ", "))) %>%
   st_write(here::here("Output", "tracts_bounds.shp"))
