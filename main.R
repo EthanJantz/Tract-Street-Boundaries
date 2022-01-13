@@ -1,8 +1,13 @@
 library(dplyr)
 library(sf)
 
-tracts <- read_sf(here::here("Data", "tracts_2010", "tracts.shp")) # Tracts from Chicago Data Portal
-streets <- read_sf(here::here("Data", "streets", "streets_chi.shp")) # Streets from Chicago Data Portal
+# Tracts from Chicago Data Portal
+# https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Census-Tracts-2010/5jrd-6zik
+tracts <- read_sf(here::here("Data", "tracts_2010", "tracts.shp")) 
+
+# Streets from Chicago Data Portal
+# https://data.cityofchicago.org/Transportation/Street-Center-Lines/6imu-meau
+streets <- read_sf(here::here("Data", "streets", "streets_chi.shp")) 
 
 source(here::here("Scripts", "findBounds.R"))
 
