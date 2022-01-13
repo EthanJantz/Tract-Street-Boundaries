@@ -1,10 +1,10 @@
 library(dplyr)
 library(sf)
 
-tracts <- read_sf(here::here("Data", "tracts_2010", "tracts.shp"))
-streets <- read_sf(here::here("Data", "streets", "streets_chi.shp"))
+tracts <- read_sf(here::here("Data", "tracts_2010", "tracts.shp")) # Tracts from Chicago Data Portal
+streets <- read_sf(here::here("Data", "streets", "streets_chi.shp")) # Streets from Chicago Data Portal
 
-source("findBounds.R")
+source(here::here("Scripts", "findBounds.R"))
 
 # This will take a significant amount of time
 for(tract in 1:nrow(tracts)) {
