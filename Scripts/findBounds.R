@@ -38,7 +38,7 @@ findBounds <- function(t, s) {
         max(ewns) == min(ewns) ~ "No Opposite Bound",
         TRUE ~ "Additional Side"
       ),
-      ewns_text = paste0(side, " - ", street_nam)
+      ewns_text = paste0(side, " - ", r_parity, " ", street_nam, " ", street_typ)
     ) %>%
     pull(ewns_text)
   
