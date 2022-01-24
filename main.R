@@ -1,5 +1,6 @@
 library(dplyr)
 library(sf)
+library(stringr)
 
 # Tracts from Chicago Data Portal
 # https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Census-Tracts-2010/5jrd-6zik
@@ -21,5 +22,5 @@ for(tract in 1:nrow(tracts)) {
 
 # Convert list col to comma-separated string and save
 tracts %>%
-  mutate(bounds = map_chr(bounds, ~ .x %>% str_c(collapse = ", "))) %>%
+  mutate(bounds = purrr::map_chr(bounds, ~ .x %>% stringr::str_c(collapse = ", "))) %>%
   st_write(here::here("Output", "tracts_bounds.shp"))
